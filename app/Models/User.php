@@ -9,6 +9,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+/**
+ * Enumerations status
+ */
+abstract class Status {
+    const ACTIVE = 1;
+    const SUSPENDED = 0;
+}
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -17,8 +25,8 @@ class User extends Authenticatable
     const STATUS_SUSPENDED = 0;
 
     public static $status = [
-        User::STATUS_ACTIVE => 'Active',
-        User::STATUS_SUSPENDED => 'Supended',
+        Status::ACTIVE => 'Active',
+        Status::SUSPENDED => 'Supended',
     ];
 
     /**

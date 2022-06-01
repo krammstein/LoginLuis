@@ -34,3 +34,5 @@ Route::get('/admin/profile', [DashController::class, 'profile'])->name('user.pro
 Route::put('/admin/update', [DashController::class, 'update'])->name('user.update');
 
 Route::put('/admin/changeStatus', [DashController::class, 'changeStatus'])->name('user.changeStatus');
+
+Route::post('rememberPass', [UserController::class, 'rememberPass'])->name('user.rememberPass');

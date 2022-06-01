@@ -10,7 +10,7 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <form action="" method="post">
+            <form action="{{ route('user.rememberPass') }}" method="post">
                 @csrf
 
                 <div class="col-12 mb-2">
@@ -18,8 +18,15 @@
                     <input type="email" name="email" class="form-control" required />
                 </div>
 
-                <button type="submit" class="btn btn-primary">Enviar Instrucciones</button>
+                <button type="submit" class="btn btn-primary">Send</button>
 
+                <a href="{{ route('user.login') }}" class="btn btn-info">Back to Login</a>
+
+                @if (isset($_GET['success']))
+                    <div class="alert alert-{{ (request('success') == 1 ? 'success' : 'danger') }} mt-5" role="alert">
+                        {{ (request('success') == 1 ? 'We sent you to your email the new Password' : request('err') ) }}
+                    </div>
+                @endif
 
             </form>
         </div>
