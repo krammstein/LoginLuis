@@ -28,3 +28,9 @@ Route::post('do-login', [UserController::class, 'doLogin'])->name('user.doLogin'
 Route::get('/admin/dash', [DashController::class, 'index'])->name('user.dash');
 
 Route::get('/admin/logout', [DashController::class, 'logout'])->name('user.logout');
+
+Route::get('/admin/profile', [DashController::class, 'profile'])->name('user.profile');
+
+Route::put('/admin/update', [DashController::class, 'update'])->name('user.update');
+
+Route::put('/admin/changeStatus', [DashController::class, 'changeStatus'])->name('user.changeStatus');

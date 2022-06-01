@@ -16,6 +16,11 @@ class User extends Authenticatable
     const STATUS_ACTIVE = 1;
     const STATUS_SUSPENDED = 0;
 
+    public static $status = [
+        User::STATUS_ACTIVE => 'Active',
+        User::STATUS_SUSPENDED => 'Supended',
+    ];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -38,6 +43,11 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected $dates = [
+        'created_at',
+        'updated_at',
+    ];
+
     /**
      * The attributes that should be cast.
      *
@@ -54,10 +64,16 @@ class User extends Authenticatable
         );
     }
 
+    public function getStatus(){
+        return static::$status[$this->status];
+    }
+
     public function login($email, $pass){
         
         return static::where('email', $email)
-        ->where('password', hash('sha256', $pass))->first();
+        ->where('password', hash('sha256', $pass))
+        //->where('status', static::STATUS_ACTIVE)
+        ->first();
 
     }
 }

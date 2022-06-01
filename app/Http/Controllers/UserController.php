@@ -43,12 +43,14 @@ class UserController extends Controller
             ]);
 
             return redirect()->route('user.dash');
+            
 
         }else{
 
             return redirect()->route('user.login', [
-                'error' => 1
-            ]);
+                    'error' => 1
+                ]);
+            
         }
 
     }

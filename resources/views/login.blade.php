@@ -6,6 +6,10 @@
     <div class="row">
         <div class="col-12">
             <h1>Login Principal</h1>
+            <ul>
+                <li>User: krammstein@gmail.com</li>
+                <li>Pass: 12345678</li>
+            </ul>
         </div>
     </div>
     <div class="row">
